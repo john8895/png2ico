@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input type="file" multiple="multiple" id="file-uploader" name="product">
+    <input type="submit" value="submit">
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+   const fileUploader = document.querySelector('#file-uploader');
+
+   fileUploader.addEventListener('change', (e)=>{
+       console.log(e.target.files[0])
+
+       let form = new FormData()
+       form.append("product", e.target.files[0])
+       console.log(form)
+        const apiUrl = 'upload.php'
+       $.ajax({
+           processData: false,
+           data: form,
+           url: apiUrl,
+           method: 'POST',
+       })
+       .then((res)=>{
+           console.log(res)
+       })
+
+       // fetch('http://httpbin.org/post', {
+       //     method: 'POST',
+       //     body: form,
+       // })
+       // .then((res)=>{
+       //     // console.log(JSON.parse(res));
+       //     console.log(res)
+       //     return res.json()
+       // })
+       //     .then((data)=>{
+       //         console.log(data)
+       //     })
+       // .catch((err)=>{
+       //     console.log(err)
+       // })
+   })
+
+</script>
+</body>
+</html>
