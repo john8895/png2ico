@@ -1,6 +1,8 @@
 <?php
 
-echo $_POST['product'];
+//echo $_POST['product'];
+//echo $_FILES;
+echo $_FILES['product']['error'];
 
 # 檢查檔案是否上傳成功
 //if ($_FILES['product']['error'] === UPLOAD_ERR_OK){

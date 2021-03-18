@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello</h1>
+<form action="" id="uploadForm">
+    <label>Upload Image File:</label>
+    <input type="file" multiple="multiple" name="product" class="file">
+    <input type="submit" value="submit">
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#uploadForm').on('submit', (e) => {
+            e.preventDefault();
+            let formData = new FormData();
+            formData.append('product', $('.file').prop('files')[0])
+            $.ajax({
+                url: 'upload.php',
+                method: 'POST',
+                // 不處理發送的資料
+                processData: false,
+                // 不設定 Content-Type 請求頭
+                contentType: false,
+                dataType: 'json',
+                data: formData,
+                success: ((res) => {
+                    console.log(res)
+                })
+            })
+        })
+    })
+</script>
+</body>
+</html>

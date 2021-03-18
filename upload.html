@@ -11,24 +11,24 @@
 </form>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-   const fileUploader = document.querySelector('#file-uploader');
-
-   fileUploader.addEventListener('change', (e)=>{
-       console.log(e.target.files[0])
-
-       let form = new FormData()
-       form.append("product", e.target.files[0])
-       console.log(form)
-        const apiUrl = 'upload.php'
-       $.ajax({
-           processData: false,
-           data: form,
-           url: apiUrl,
-           method: 'POST',
-       })
-       .then((res)=>{
-           console.log(res)
-       })
+   // const fileUploader = document.querySelector('#file-uploader');
+   //
+   // fileUploader.addEventListener('change', (e)=>{
+   //     console.log(e.target.files[0])
+   //
+   //     let form = new FormData()
+   //     form.append("product", e.target.files[0])
+   //     console.log(form)
+   //      const apiUrl = 'upload.php'
+   //     $.ajax({
+   //         processData: false,
+   //         data: form,
+   //         url: apiUrl,
+   //         method: 'POST',
+   //     })
+   //     .then((res)=>{
+   //         console.log(res)
+   //     })
 
        // fetch('http://httpbin.org/post', {
        //     method: 'POST',
@@ -45,7 +45,7 @@
        // .catch((err)=>{
        //     console.log(err)
        // })
-   })
+   // })
 
 </script>
 </body>
